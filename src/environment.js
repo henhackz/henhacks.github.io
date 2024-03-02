@@ -16,15 +16,16 @@ export function renderEnvironment(renderer, camera, scene) {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh(geometry, material);
-    addSound(listener, cube);
+    const sound = addSound(listener, cube);
     scene.add(cube);
+    cube.add(sound);
 
     function animate() {
         requestAnimationFrame(animate);
     
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
-    
+        cube.position.z -= 0.05;
         renderer.render(scene, camera);
     }
     animate();
@@ -36,11 +37,8 @@ function addSound(listener, mesh) {
     const audioLoader = new THREE.AudioLoader();
     audioLoader.load( '/assests/sounds/piano-test.mp3', function( buffer ) {
         sound.setBuffer( buffer );
-        sound.setRefDistance( 20 );
         sound.play();
     });
 
-    console.log(mesh)
-
-    //mesh.add(sound)
+    return sound;
 }
