@@ -2,8 +2,6 @@ import * as THREE from 'three';
 
 const SOUNDS_PATH = "../assets/sounds/"
 
-let BADGLOBALVARIABLE
-
 export function renderEnvironment(renderer, camera, scene) {
     
     camera.position.z = 5;
@@ -11,33 +9,51 @@ export function renderEnvironment(renderer, camera, scene) {
     const listener = new THREE.AudioListener();
     camera.add( listener );
 
-    addSound(listener)
+    const sound1 = makeSound(listener, '/assests/sounds/dream/ambient-dream-16671.mp3');
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh(geometry, material);
-    const sound = addSound(listener, cube);
-    scene.add(cube);
-    cube.add(sound);
+    const sound2 = makeSound(listener, '/assests/sounds/dream/dream-sound-effect-downscale-7134.mp3');
+
+    const cube1 = makeCube(0, 0, 0, scene, sound1);
+    const cube2 = makeCube(2, 0, 0, scene, sound2);
 
     function animate() {
         requestAnimationFrame(animate);
     
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-        cube.position.z -= 0.05;
+        cube1.rotation.x += 0.01;
+        cube1.rotation.y += 0.01;
         renderer.render(scene, camera);
     }
     animate();
 }
 
-function addSound(listener, mesh) {
+function makeCube(x, y, z, scene, sound) {
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const cube = new THREE.Mesh(geometry, material);
+
+    cube.position.x = x;
+    cube.position.y = y;
+    cube.position.z = z;
+
+    if(scene) {
+        scene.add(cube);
+    }
+
+    if(sound) {
+        cube.add(sound)
+    }
+
+    return cube
+}
+
+function makeSound(listener, soundPath) {
     const sound = new THREE.PositionalAudio( listener );
 
     const audioLoader = new THREE.AudioLoader();
-    audioLoader.load( '/assests/sounds/piano-test.mp3', function( buffer ) {
+    audioLoader.load(soundPath, function( buffer ) {
         sound.setBuffer( buffer );
         sound.play();
+        sound.setLoop(true);
     });
 
     return sound;
