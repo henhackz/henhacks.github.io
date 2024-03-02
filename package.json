@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/henhacks/soundificatorinator#readme",
   "dependencies": {
-    "three": "^0.162.0",
-    "web-bluetooth": "^0.1.2"
+    "three": "^0.162.0"
   },
   "devDependencies": {
     "vite": "^5.1.4"
