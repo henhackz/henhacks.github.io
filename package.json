@@ -4,7 +4,7 @@
   "description": "ahh perry the hen hacks judge",
   "main": "index.js",
   "scripts": {
-    "run": "npx vite",
+    "start": "npx vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
