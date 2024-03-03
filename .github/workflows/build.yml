@@ -36,10 +36,10 @@ jobs:
           npx vite build
 
       - name: Deploy
-          run: |
-            npx vite
-          env:
-              user_name: "github-actions[bot]"
-              user_email: "github-actions[bot]@users.noreply.github.com"
-              github_token: ${{ secrets.GH_TOKEN }}
-              repository: ${{ github.repository }}
+        run: |
+          npx vite
+        env:
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          github_token: ${{ secrets.GH_TOKEN }}
+          repository: ${{ github.repository }}
