@@ -4,9 +4,15 @@ function sleep(ms) {
 }
 
 async function getData() {
-    const response = await fetch("http://example.com/movies.json");
-    const data = await response.json();
-    console.log(data);
+    const response = await fetch("https://soundificatorinator.onrender.com/");
+    await console.log(response);
+    sleep(1000);
+    const data = await response.text();
+    await console.log(data);
+    parsed = data.split(',');
+    var x = parsed[0];
+    var y = parsed[1];
+    var z = parsed[2];
   }
 
 getData();
