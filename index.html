@@ -5,21 +5,30 @@
 		<title>Soundificatorinator</title>
 		<style>
 			body { 
-				background-color: grey;
-				margin: 0; 
+				background: linear-gradient(90deg, rgba(149,127,173,1) 0%, rgb(113, 160, 169) 50%, rgba(117,185,152,1) 100%);
 			}
 			.selection {
-				text-align: center;
+				position: absolute;
+				bottom: 2%;
+				left: 2%;
+			}
+			.reset {
+				position: absolute;
+				bottom: 2%;
+				right: 2%;
 			}
 		</style>
 	</head>
 	<body>
 		<script type="module" src="src/main.js"></script>
+		<script type="module" src="src/bg.js"></script>
 		<div class="selection">
-			<button>Ambiance 1</button>
-			<button>Ambiance 2</button>
-			<button>Ambiance 3</button>
-			<button>Reset</button>
+			<button id="1">Ambiance 1</button>
+			<button id="2">Ambiance 2</button>
+			<button id="3">Ambiance 3</button>
+		</div>
+		<div class="reset">
+			<button id="reset">Reset</button>
 		</div>
 	</body>
 </html>
