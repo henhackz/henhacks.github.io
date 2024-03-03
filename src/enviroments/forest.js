@@ -9,7 +9,7 @@ export function renderForestEnvironment() {
     scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
     
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({alpha: true});
     renderer.setSize( window.innerWidth, window.innerHeight );
     
     const renderingData = {renderer: renderer, camera: camera, scene: scene}
@@ -23,7 +23,7 @@ export function renderForestEnvironment() {
             z: 0
         },
         {
-            soundPath: '../../assests/sounds/forest/forest-wind-and-birds-6881.mp3', 
+            soundPath: '../../assests/sounds/forest/mystic-forest-ambient-23812.mp3', 
             replayDelay: 0,
             x: 3,
             y: 0,

@@ -9,7 +9,7 @@ export function renderWaterEnvironment() {
     scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
     
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({alpha: true});
     renderer.setSize( window.innerWidth, window.innerHeight );
     
     const renderingData = {renderer: renderer, camera: camera, scene: scene}
