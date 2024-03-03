@@ -1,4 +1,4 @@
-import { renderDreamEnvironment, removeDreamEnvironment } from './enviroments/dream.js'
+import { renderDreamEnvironment, removeDreamEnvironment } from './enviroments/dream.js';
 import { renderWaterEnvironment, removeWaterEnvironment } from './enviroments/water.js';
 import { renderForestEnvironment, removeForestEnvironment } from './enviroments/forest.js';
 
