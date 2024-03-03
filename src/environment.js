@@ -14,7 +14,7 @@ export function renderEnvironment(renderingData, environmentData) {
         const soundData = {listener: listener, soundPath: element.soundPath, replayDelay: element.replayDelay}
         const [cube, sound] = makeCube(element.x, element.y, element.z, renderingData.scene, soundData, loadedSounds);
 
-        soundObjects.push({mesh: cube, sound: sound})
+        soundObjects.push({mesh: cube, sound: sound, timer: undefined})
     });
 
     function checkIfSongsLoaded() {
@@ -23,12 +23,9 @@ export function renderEnvironment(renderingData, environmentData) {
         } else {
             
             for(let i = 0; i < soundObjects.length; i++) {
-                playSound(soundObjects[i].sound, environmentData)
+                const timer = playSound(soundObjects[i].sound, environmentData[i].replayDelay);
+                soundObjects[i].timer = timer
             }
-            
-            soundObjects.forEach((element) => {
-                playSound(element.sound, 1)
-            })
         }
     }
     checkIfSongsLoaded();
@@ -75,6 +72,7 @@ function makeSound(listener, soundPath, loadedSounds) {
     const audioLoader = new THREE.AudioLoader();
 
     audioLoader.load(soundPath, async function( buffer ) {
+        sound.name = soundPath;
         sound.setBuffer( buffer );
         sound.setLoop(true);
         loadedSounds.number += 1;
@@ -83,7 +81,7 @@ function makeSound(listener, soundPath, loadedSounds) {
     return sound;
 }
 
-async function playSound(sound, replayDelay) {
+function playSound(sound, replayDelay) {
     
     if(replayDelay > 0) {
 
