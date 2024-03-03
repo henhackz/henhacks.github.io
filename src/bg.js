@@ -1,3 +1,4 @@
+// comment to force rebuild
 document.getElementById("1").addEventListener("click", function() {
     console.log(1);
     document.body.style.background = "radial-gradient(circle, rgba(149,127,173,1) 0%, rgb(90, 60, 100) 100%)"
@@ -17,6 +18,7 @@ const resetButton = document.getElementById("reset")
 resetButton.addEventListener("click", function() {
     console.log("resetting orientation")
 });
+
 function adjustResetButtonPosition() {
     if (resetButton.getBoundingClientRect().left < document.getElementById("3").getBoundingClientRect().right) {
         console.log("YES");
