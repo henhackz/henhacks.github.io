@@ -1,48 +1,52 @@
-# This is a basic workflow to help you get started with Actions
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: CI
+name: Node.js CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: [main]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+        strategy:
+            matrix:
+                node-version: [16.x]
+                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "npm"
+            - id: get-repo-values
+              run: |
+                  url=https://$(echo "${{github.repository}}" | sed "s/\//.github.io\//")
+                  echo "url=$url" >> $GITHUB_OUTPUT
+            - name: Update package.json homepage
+              uses: jossef/action-set-json-field@v1
+              with:
+                  file: package.json
+                  field: homepage
+                  value: ${{ steps.get-repo-values.outputs.url }}
+            - run: npm ci
+            - run: npm run lint
+            - run: npm run test -- --coverage |& tee ./public/test_report.txt
+            - run: echo "<html><head><meta http-equiv='refresh' content='0; URL=${{github.server_url}}/${{github.repository}}' /></head><body>Redirecting to repository</body></html>" > ./public/github.html
+            - run: npm run build --if-present
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          npm ci
-
-      - name: Deploy
-        run: |
-          git config --global user.name ${user_name}
-          git config --global user.email ${user_email}
-          git remote set-url origin https://${github_token}@github.com/${repository}
-          npx vite build
-          npx vite deploy
-        env:
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
-          github_token: ${{ secrets.GH_TOKEN }}
-          repository: ${{ github.repository }}
+            - name: Deploy
+              run: |
+                  git config --global user.name ${user_name}
+                  git config --global user.email ${user_email}
+                  git remote set-url origin https://${github_token}@github.com/${repository}
+                  npm run deploy
+              env:
+                  user_name: "github-actions[bot]"
+                  user_email: "github-actions[bot]@users.noreply.github.com"
+                  github_token: ${{ secrets.GH_TOKEN }}
+                  repository: ${{ github.repository }}
