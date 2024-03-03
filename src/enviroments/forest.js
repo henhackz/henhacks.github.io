@@ -21,16 +21,16 @@ export function renderForestEnvironment() {
     const forestEnvironmentData = [
         {
             soundPath: sound1, 
-            replayDelay: 1,
-            x: -8,
+            replayDelay: 0,
+            x: 2,
             y: 0,
             z: 0
         },
         {
             soundPath: sound2, 
             replayDelay: 0,
-            x: 3,
-            y: 0,
+            x: 0,
+            y: 2,
             z: 0
         },
         {

@@ -28,7 +28,7 @@ export function renderWaterEnvironment() {
         {
             soundPath: sound2,
             replayDelay: 0,
-            x: 3,
+            x: 1.5,
             y: 0,
             z: 0
         },

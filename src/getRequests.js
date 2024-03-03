@@ -15,9 +15,9 @@ async function getData() {
     await console.log(data);
     var parsed = data.split(',');
     if(parsed) {
-      gyroXRot = parsed[0];
-      gyroYRot = parsed[1];
-      gyroZRot = parsed[2];
+      gyroXRot = -parsed[0];
+      gyroYRot = -parsed[2];
+      gyroZRot = -parsed[1];
     }
     return 0;
   }

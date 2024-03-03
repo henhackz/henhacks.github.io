@@ -21,7 +21,7 @@ export function renderDreamEnvironment() {
         {
             soundPath: sound1, 
             replayDelay: 1,
-            x: -8,
+            x: 1,
             y: 0,
             z: 0
         },

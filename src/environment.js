@@ -4,7 +4,7 @@ import {gyroXRot, gyroYRot, gyroZRot} from './getRequests.js'
 
 export function renderEnvironment(renderingData, environmentData) {
     
-    renderingData.camera.position.z = 5;
+    renderingData.camera.position.z = 0;
 
     const listener = new THREE.AudioListener();
     renderingData.camera.add( listener );
@@ -34,15 +34,10 @@ export function renderEnvironment(renderingData, environmentData) {
 
     function animate() {
         requestAnimationFrame(animate);
-    
-        const cube1 = soundObjects[0].mesh
-        cube1.rotation.x += 0.01;
-        cube1.rotation.y += 0.01;
-        cube1.position.x += 0.05
 
-        renderingData.camera.rotation.x = gyroXRot;
-        renderingData.camera.rotation.y = gyroYRot;
-        renderingData.camera.rotation.z = gyroZRot;
+        renderingData.camera.rotation.x = (3.14 / 180 ) * gyroXRot;
+        renderingData.camera.rotation.y = (3.14 / 180 ) * gyroYRot;
+        renderingData.camera.rotation.z = (3.14 / 180 ) * gyroZRot;
         renderingData.renderer.render(renderingData.scene, renderingData.camera);
     }
     animate();
@@ -52,7 +47,7 @@ export function renderEnvironment(renderingData, environmentData) {
 
 function makeCube(x, y, z, scene, soundData, loadedSounds) {
     
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const geometry = new THREE.BoxGeometry(.3, .3, .3);
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh(geometry, material);
 
