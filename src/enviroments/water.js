@@ -16,26 +16,12 @@ export function renderWaterEnvironment() {
     
     const waterEnvironmentData = [
         {
-            soundPath: '../../assests/sounds/water/bubble-bursting-popping-14423.mp3',
-            replayDelay: 1,
-            x: 0,
-            y: 3,
-            z: 0
-        },
-        {
             soundPath: '../../assests/sounds/water/calm-river-ambience-loop-125071.mp3', 
             replayDelay: 0,
-            x: 3,
+            x: 1.5,
             y: 0,
             z: 0
         },
-        {
-            soundPath: '../../assests/sounds/water/droplets-in-a-cave-6785.mp3', 
-            replayDelay: 3,
-            x: -5,
-            y: 1,
-            z: 0
-        }
     ]
 
     soundObjects = renderEnvironment(renderingData, waterEnvironmentData);

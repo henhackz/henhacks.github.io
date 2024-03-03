@@ -18,7 +18,7 @@ export function renderForestEnvironment() {
         {
             soundPath: '../../assests/sounds/forest/forest-wind-and-birds-6881.mp3', 
             replayDelay: 0,
-            x: 3,
+            x: 2,
             y: 0,
             z: 0
         },
@@ -26,14 +26,7 @@ export function renderForestEnvironment() {
             soundPath: '../../assests/sounds/forest/mystic-forest-ambient-23812.mp3', 
             replayDelay: 0,
             x: 0,
-            y: 3,
-            z: 0
-        },
-        {
-            soundPath: '../../assests/sounds/forest/rustling-leaves-6875.mp3', 
-            replayDelay: 0,
-            x: -3,
-            y: 0,
+            y: 2,
             z: 0
         }
     ]

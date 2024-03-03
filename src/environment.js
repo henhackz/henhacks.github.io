@@ -47,7 +47,7 @@ export function renderEnvironment(renderingData, environmentData) {
 
 function makeCube(x, y, z, scene, soundData, loadedSounds) {
     
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const geometry = new THREE.BoxGeometry(.3, .3, .3);
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh(geometry, material);
 
