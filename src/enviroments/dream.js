@@ -16,21 +16,21 @@ export function renderDreamEnvironment() {
     
     const dreamEnvironmentData = [
         {
-            soundPath: URL('../../assests/sounds/dream/dream-sound-effect-downscale-7134.mp3'), 
+            soundPath: 'henhacks.github.io/assests/sounds/dream/dream-sound-effect-downscale-7134.mp3', 
             replayDelay: 1,
             x: -8,
             y: 0,
             z: 0
         },
         {
-            soundPath: URL('../../assests/sounds/dream/dream-magic-prolonged-94891.mp3'), 
+            soundPath: 'henhacks.github.io/assests/sounds/dream/dream-magic-prolonged-94891.mp3', 
             replayDelay: 0,
             x: 3,
             y: 0,
             z: 0
         },
         {
-            soundPath: URL('../../assests/sounds/dream/magical-transition-144153.mp3'), 
+            soundPath: 'henhacks.github.io/assests/sounds/dream/magical-transition-144153.mp3', 
             replayDelay: 3,
             x: -5,
             y: 1,
