@@ -18,6 +18,20 @@ const environmentData = [
         y: 0,
         z: 0
     },
+    {
+        soundPath: '/assests/sounds/dream/ambient-dream-16671.mp3', 
+        replayDelay: 1,
+        x: 0,
+        y: -5,
+        z: 0
+    },
+    {
+        soundPath: '/assests/sounds/dream/various-glassy-stone-windchime-sounds-48417.mp3', 
+        replayDelay: 1,
+        x: 0,
+        y: 0,
+        z: 5
+    }
 ]
 
 renderEnvironment(renderingData, environmentData)
