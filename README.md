@@ -21,6 +21,10 @@ First, fork this repo. Run the code from main on whatever machine you have dicta
 
 For the express.js server, we used Render to deploy it. You can find our instance [right here](https://soundificatorinator.onrender.com/). You can use Render to deploy your own instance of the API or simply run it locally. Just remember that **you must change the requests link in the req.py file.**
 
+Commands to run main source:
+- npm i
+- npx vite
+
 Once all three of these are running, you're set! For further instructions or help, we recommend these resources:
 - https://mui.com/toolpad/how-to-guides/render-deploy/
 - https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
