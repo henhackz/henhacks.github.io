@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import {renderEnvironment} from "../environment.js";
 import sound1 from '/src/sounds/water/bubble-bursting-popping-14423.mp3';
-import sound2 from '/src/assests/sounds/water/calm-river-ambience-loop-125071.mp3';
-import sound3 from '/src/assests/sounds/water/droplets-in-a-cave-6785.mp3'
+import sound2 from '/src/sounds/water/calm-river-ambience-loop-125071.mp3';
+import sound3 from '/src/sounds/water/droplets-in-a-cave-6785.mp3'
 
 let renderer = undefined;
 let soundObjects = undefined;

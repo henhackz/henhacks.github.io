@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import {renderEnvironment} from "../environment.js";
-import sound1 from '/src/assests/sounds/forest/forest-wind-and-birds-6881.mp3';
-import sound2 from '/src/assests/sounds/forest/mystic-forest-ambient-23812.mp3';
-import sound3 from '/src/assests/sounds/forest/rustling-leaves-6875.mp3';
+import sound1 from '/src/sounds/forest/forest-wind-and-birds-6881.mp3';
+import sound2 from '/src/sounds/forest/mystic-forest-ambient-23812.mp3';
+import sound3 from '/src/sounds/forest/rustling-leaves-6875.mp3';
 
 
 let renderer = undefined;
