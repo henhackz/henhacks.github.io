@@ -36,8 +36,11 @@ jobs:
 
       - name: Deploy
         run: |
+          git config --global user.name ${user_name}
+          git config --global user.email ${user_email}
+          git remote set-url origin https://${github_token}@github.com/${repository}
           npx vite build
-          npm run deploy
+          npx vite deploy
         env:
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
