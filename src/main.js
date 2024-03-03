@@ -12,12 +12,26 @@ const renderingData = {renderer: renderer, camera: camera, scene: scene}
 
 const environmentData = [
     {
-        soundPath: '/assests/sounds/dream/dream-sound-effect-downscale-7134.mp3', 
+        soundPath: '../../assests/sounds/dream/dream-sound-effect-downscale-7134.mp3', 
         replayDelay: 1,
         x: -8,
         y: 0,
+        z: 5
+    },
+    {
+        soundPath: '../../assests/sounds/dream/ambient-dream-16671.mp3', 
+        replayDelay: 1,
+        x: 0,
+        y: -5,
         z: 0
     },
+    {
+        soundPath: '../../assests/sounds/dream/various-glassy-stone-windchime-sounds-48417.mp3', 
+        replayDelay: 1,
+        x: 0,
+        y: 0,
+        z: 5
+    }
 ]
 
 renderEnvironment(renderingData, environmentData)
