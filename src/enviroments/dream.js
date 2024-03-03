@@ -1,10 +1,12 @@
 import * as THREE from 'three';
 import {renderEnvironment} from "../environment.js"
 
-let renderer;
+let renderer = undefined;
+let soundObjects = undefined;
+let scene = undefined
 
 export function renderDreamEnvironment() {
-    const scene = new THREE.Scene();
+    scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
     
     renderer = new THREE.WebGLRenderer();
@@ -21,30 +23,37 @@ export function renderDreamEnvironment() {
             z: 0
         },
         {
-            soundPath: '../../assests/sounds/dream/ambient-dream-16671.mp3', 
-            replayDelay: 1,
+            soundPath: '../../assests/sounds/dream/dream-magic-prolonged-94891.mp3', 
+            replayDelay: 0,
             x: 3,
             y: 0,
             z: 0
         },
         {
-            soundPath: '../../assests/sounds/dream/various-glassy-stone-windchime-sounds-48417.mp3', 
-            replayDelay: 1,
+            soundPath: '../../assests/sounds/dream/magical-transition-144153.mp3', 
+            replayDelay: 3,
             x: -5,
             y: 1,
             z: 0
         }
     ]
 
-    renderEnvironment(renderingData, dreamEnvironmentData);
+    soundObjects = renderEnvironment(renderingData, dreamEnvironmentData);
 
     document.body.appendChild( renderer.domElement );
 }
 
 export function removeDreamEnvironment() {
+    if(soundObjects !== undefined) {
+        soundObjects.forEach(element => {      
+            element.sound.stop()
+            scene.remove(element.mesh)
+            clearTimeout(element.timer)
+        });
+    }
     if(renderer !== undefined) {
-        console.log("removing dream")
         document.body.removeChild( renderer.domElement );
+        renderer.dispose()
         renderer = undefined;
     }
 }
