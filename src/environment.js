@@ -1,31 +1,38 @@
 import * as THREE from 'three';
 
-function delay(ms) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}
-
-export function renderEnvironment(renderer, camera, scene) {
+export function renderEnvironment(renderingData, environmentData) {
     
-    camera.position.z = 0;
+    renderingData.camera.position.z = 0;
 
     const listener = new THREE.AudioListener();
-    camera.add( listener );
+    renderingData.camera.add( listener );
 
-    const soundData1 = {listener: listener, soundPath: '/assests/sounds/dream/dream-sound-effect-downscale-7134.mp3', replayDelay: 0.0}
-    const cube1 = makeCube(-8, 0, 0, scene, soundData1);
+    const soundObjects = [];
+
+    environmentData.forEach(element => {
+        const soundData = {listener: listener, soundPath: element.soundPath, replayDelay: element.replayDelay}
+        const [cube, timer] = makeCube(element.x, element.y, element.z, renderingData.scene, soundData);
+
+        soundObjects.push({mesh: cube, timer: timer})
+    });
 
     function animate() {
         requestAnimationFrame(animate);
     
+        const cube1 = soundObjects[0].mesh
+
         cube1.rotation.x += 0.01;
         cube1.rotation.y += 0.01;
         cube1.position.x += 0.05
-        renderer.render(scene, camera);
+        renderingData.renderer.render(renderingData.scene, renderingData.camera);
     }
     animate();
+
+    return soundObjects
 }
 
 function makeCube(x, y, z, scene, soundData) {
+    
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh(geometry, material);
@@ -39,9 +46,10 @@ function makeCube(x, y, z, scene, soundData) {
     }
 
     const [sound, timer] = makeSound(soundData.listener, soundData.soundPath, soundData.replayDelay);
+    //console.log(timer)
     cube.add(sound)
 
-    return cube
+    return [cube, timer]
 }
 
 function makeSound(listener, soundPath, replayDelay) {
@@ -65,10 +73,12 @@ function makeSound(listener, soundPath, replayDelay) {
                 sound.pause()
             }, (buffer.duration + replayDelay) * 1000)
 
+            console.log(timer)
+
             await delay(buffer.duration * 1000)
             sound.pause()
         })
-    
+
         return [sound, timer]
 
     }
@@ -82,4 +92,12 @@ function makeSound(listener, soundPath, replayDelay) {
 
         return [sound, undefined]
     }
+}
+
+function playSound() {
+
+}
+
+function delay(ms) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
 }
