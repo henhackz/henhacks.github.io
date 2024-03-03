@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 
+import {gyroXRot, gyroYRot, gyroZRot} from './getRequests.js'
+
 export function renderEnvironment(renderingData, environmentData) {
     
     renderingData.camera.position.z = 5;
@@ -34,10 +36,13 @@ export function renderEnvironment(renderingData, environmentData) {
         requestAnimationFrame(animate);
     
         const cube1 = soundObjects[0].mesh
-
         cube1.rotation.x += 0.01;
         cube1.rotation.y += 0.01;
         cube1.position.x += 0.05
+
+        renderingData.camera.rotation.x = gyroXRot;
+        renderingData.camera.rotation.y = gyroYRot;
+        renderingData.camera.rotation.z = gyroZRot;
         renderingData.renderer.render(renderingData.scene, renderingData.camera);
     }
     animate();
