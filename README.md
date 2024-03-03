@@ -3,7 +3,7 @@ A project dedicated to reducing overstimulation in noisy environments for neurod
 
 Sound-ificator-inator works by emulating the sounds of a real environment of your choosing. If you turn your head, the sounds in your headphones change with your movement. We do not currently own earbuds with gyro capability, so we have emulated the head movement using a model 4b raspberry pi and a sense hat. This is only for the purpose of our prototype.
 
-### Features
+## Features
 We're really proud of this. Here are some of the features we created:
 - Dynamic positional audio
 - Gyro reading locally on the raspberry pi
@@ -23,6 +23,7 @@ For the express.js server, we used Render to deploy it. You can find our instanc
 
 Once all three of these are running, you're set! For further instructions or help, we recommend these resources:
 - https://mui.com/toolpad/how-to-guides/render-deploy/
+- https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
 ## Why is it named that?
 Answer:
