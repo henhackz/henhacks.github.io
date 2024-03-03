@@ -18,8 +18,8 @@ export function renderWaterEnvironment() {
         {
             soundPath: '../../assests/sounds/water/bubble-bursting-popping-14423.mp3',
             replayDelay: 1,
-            x: -8,
-            y: 0,
+            x: 0,
+            y: 3,
             z: 0
         },
         {
