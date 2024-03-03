@@ -8,6 +8,13 @@ var x = 0.0;
 var y = 0.0;
 var z = 0.0;
 
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.get('/', (req, res) => {
   res.send(`${x},${y},${z}`)
 })
