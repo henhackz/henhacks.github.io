@@ -3,7 +3,7 @@ import {renderEnvironment} from "../environment.js"
 
 let renderer;
 
-export function renderDreamEnvironment() {
+export function renderWaterEnvironment() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
     
@@ -28,7 +28,7 @@ export function renderDreamEnvironment() {
             z: 0
         },
         {
-            soundPath: '../../assests/sounds/droplets-in-a-cave.mp3', 
+            soundPath: '../../assests/sounds/water/droplets-in-a-cave.mp3', 
             replayDelay: 1,
             x: -5,
             y: 1,
