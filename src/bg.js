@@ -1,4 +1,4 @@
-import { renderDreamEnvironment, removeDreamEnvironment } from './enviroments/dream.js'
+import { renderDreamEnvironment, removeDreamEnvironment } from './enviroments/dream.js';
 import { renderWaterEnvironment, removeWaterEnvironment } from './enviroments/water.js';
 import { renderForestEnvironment, removeForestEnvironment } from './enviroments/forest.js';
 
@@ -7,6 +7,7 @@ document.getElementById("1").addEventListener("click", function() {
     document.body.style.background = "radial-gradient(circle, rgba(149,127,173,1) 0%, rgba(101,59,147,1) 100%)"
     removeScenes();
     renderDreamEnvironment();
+});
 document.getElementById("2").addEventListener("click", function() {
     console.log(2);
     document.body.style.background = "radial-gradient(circle, rgba(113,160,169,1) 0%, rgba(39,72,148,1) 100%)"
