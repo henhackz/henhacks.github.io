@@ -15,4 +15,5 @@ async function getData() {
     var z = parsed[2];
   }
 
-getData();
+var threadID = setInterval(getData(),1000);
+//clearInterval(threadID);
