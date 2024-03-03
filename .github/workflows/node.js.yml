@@ -34,7 +34,7 @@ jobs:
                   field: homepage
                   value: ${{ steps.get-repo-values.outputs.url }}
             - run: npm i
-            - run: npx vite
+            - run: npx vite build
 
             - name: Deploy
               run: |
