@@ -9,11 +9,12 @@ async function getData() {
     sleep(1000);
     const data = await response.text();
     await console.log(data);
-    parsed = data.split(',');
+    var parsed = data.split(',');
     var x = parsed[0];
     var y = parsed[1];
     var z = parsed[2];
+    return 0;
   }
 
-var threadID = setInterval(getData(),1000);
+var threadID = setInterval(getData,100);
 //clearInterval(threadID);
