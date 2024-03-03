@@ -1,5 +1,9 @@
 import * as THREE from 'three';
-import {renderEnvironment} from "../environment.js"
+import {renderEnvironment} from "../environment.js";
+import sound1 from '/src/sounds/forest/forest-wind-and-birds-6881.mp3';
+import sound2 from '/src/sounds/forest/mystic-forest-ambient-23812.mp3';
+import sound3 from '/src/sounds/forest/rustling-leaves-6875.mp3';
+
 
 let renderer = undefined;
 let soundObjects = undefined;
@@ -16,17 +20,24 @@ export function renderForestEnvironment() {
     
     const forestEnvironmentData = [
         {
-            soundPath: '../../assests/sounds/forest/forest-wind-and-birds-6881.mp3', 
+            soundPath: sound1, 
             replayDelay: 0,
             x: 2,
             y: 0,
             z: 0
         },
         {
-            soundPath: '../../assests/sounds/forest/mystic-forest-ambient-23812.mp3', 
+            soundPath: sound2, 
             replayDelay: 0,
             x: 0,
             y: 2,
+            z: 0
+        },
+        {
+            soundPath: sound3, 
+            replayDelay: 3,
+            x: -5,
+            y: 1,
             z: 0
         }
     ]

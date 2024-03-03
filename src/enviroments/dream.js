@@ -1,5 +1,8 @@
 import * as THREE from 'three';
-import {renderEnvironment} from "../environment.js"
+import {renderEnvironment} from "../environment.js";
+import sound1 from '/src/sounds/dream/dream-sound-effect-downscale-7134.mp3';
+import sound2 from '/src/sounds/dream/dream-magic-prolonged-94891.mp3';
+import sound3 from '/src/sounds/dream/magical-transition-144153.mp3';
 
 let renderer = undefined;
 let soundObjects = undefined;
@@ -16,10 +19,24 @@ export function renderDreamEnvironment() {
     
     const dreamEnvironmentData = [
         {
-            soundPath: '../assests/sounds/dream/ambient-dream-16671.mp3', 
+            soundPath: sound1, 
             replayDelay: 1,
             x: 1,
             y: 0,
+            z: 0
+        },
+        {
+            soundPath: sound2, 
+            replayDelay: 0,
+            x: 3,
+            y: 0,
+            z: 0
+        },
+        {
+            soundPath: sound3, 
+            replayDelay: 3,
+            x: -5,
+            y: 1,
             z: 0
         }
     ]
