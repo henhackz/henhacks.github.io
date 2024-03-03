@@ -33,11 +33,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           npm i
-          npx vite build
 
       - name: Deploy
         run: |
-          npx vite
+          npx vite build
         env:
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
