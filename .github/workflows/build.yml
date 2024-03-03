@@ -36,7 +36,8 @@ jobs:
           npx vite build
 
       - name: Deploy
-          run: npx vite
+          run: |
+            npx vite
           env:
               user_name: "github-actions[bot]"
               user_email: "github-actions[bot]@users.noreply.github.com"
