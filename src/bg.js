@@ -1,3 +1,4 @@
+// comment to force rebuild
 document.getElementById("1").addEventListener("click", function() {
     console.log(1);
     document.body.style.background = "radial-gradient(circle, rgba(149,127,173,1) 0%, rgba(101,59,147,1) 100%)"
