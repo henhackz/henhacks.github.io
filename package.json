@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/henhacks/soundificatorinator.git"
+    "url": "git+https://github.com/henhackz/soundificatorinator.git"
   },
   "keywords": [
     "sound"
@@ -19,9 +19,9 @@
   "author": "Blade Tyrell, Zachary England, Blair Felker, Michael Snead",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/henhacks/soundificatorinator/issues"
+    "url": "https://github.com/henhackz/soundificatorinator/issues"
   },
-  "homepage": "https://github.com/henhacks/soundificatorinator#readme",
+  "homepage": "https://github.com/henhackz/soundificatorinator#readme",
   "dependencies": {
     "gh-pages": "^6.1.1",
     "three": "^0.162.0",
