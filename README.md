@@ -1,5 +1,6 @@
 # Sound-ificator-inator
 A project dedicated to reducing overstimulation in noisy environments for neurodivergent people (or anyone else who suffers from sensory issues)!
+
 Click this -> https://devpost.com/software/sound-ificator-inator
 
 Sound-ificator-inator works by emulating the sounds of a real environment of your choosing. If you turn your head, the sounds in your headphones change with your movement. We do not currently own earbuds with gyro capability, so we have emulated the head movement using a model 4b raspberry pi and a sense hat. This is only for the purpose of our prototype.
